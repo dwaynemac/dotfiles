@@ -1,0 +1,14 @@
+[user]
+	name = Dwayne Macgowan
+	email = dwaynemac@gmail.com
+[core]
+	excludesfile = /home/dwaynemac/ws/.gitignore_global
+  editor = vim
+[heroku]
+	account = dwayne
+[color]
+	ui = true
+[push]
+	default = simple
+[pivotal]
+	api-token = a4f83e5418d75d3b9b46cb2734c0af1d
