@@ -13,6 +13,7 @@ set softtabstop=2
 set expandtab                           " use spaces, not tab characters
 
 :command Fold set foldmethod=indent     " :Fold will fold file by indentation -- syntax option also available
+:command Unfold set nofoldenable
 
 set relativenumber                      " show relavive line numbers
 
