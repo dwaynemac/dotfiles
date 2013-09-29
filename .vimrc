@@ -49,6 +49,14 @@ let mapleader = ","
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
 
+" Replace xxx => yyy with xxx: yyy
+nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
+vmap <Leader>h :'<,'>s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
+
+" gist-vim preferences
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
 " Run specs with ',t' via Gary Bernhardt
 function! RunTests(filename)
   " Write the file and run tests for the given filename
