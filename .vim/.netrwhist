@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/dwaynemac/ws/derose_fest/data'
-let g:netrw_dirhist_2='/home/dwaynemac/ws/derose_fest'
-let g:netrw_dirhist_3='/home/dwaynemac/ws/padma/services/crm-hub'
-let g:netrw_dirhist_4='/home/dwaynemac/ws/padma/services/crm-hub/app'
-let g:netrw_dirhist_5='/home/dwaynemac/ws/padma/services/crm-hub'
-let g:netrw_dirhist_6='/home/dwaynemac/ws/padma/services/crm-hub/spec'
-let g:netrw_dirhist_7='/home/dwaynemac/ws/padma/services/crm-hub/spec/support'
+let g:netrw_dirhist_cnt =0
