@@ -121,3 +121,5 @@ endfunction
 " run test runner
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
+
+:command Greview exec ":!git review <cword>"
