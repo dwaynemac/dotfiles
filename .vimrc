@@ -122,4 +122,8 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 
+" open in github commit over which's hash caret is standing on
 :command Greview exec ":!git review <cword>"
+
+" open directory of gem of given name
+:command -nargs=1 OpenGem exec "e `bundle show <args>`"
