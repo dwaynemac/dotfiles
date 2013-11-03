@@ -126,4 +126,4 @@ map <leader>T :call RunNearestTest()<cr>
 :command Greview exec ":!git review <cword>"
 
 " open directory of gem of given name
-:command -nargs=1 OpenGem exec "e `bundle show <args>`"
+:command -nargs=1 Rgem exec "e `bundle show <args>`"
