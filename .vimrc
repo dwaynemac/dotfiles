@@ -22,12 +22,11 @@ set hlsearch                            " highlight all search matches
 set incsearch                           " show search results as I type
 :command C let @/=""                    " :C will clear search highlights
 
-
 "set cursorline                          " highlight current line
-set ruler                               " show row and column in footer
 set scrolloff=2                         " minimun lines above/below cursor
 
 set laststatus=2                        " always show status bar
+set ruler                               " show row and column in footer
 set statusline=%f%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 set clipboard=unnamed                   " use the system clipboard
@@ -42,6 +41,9 @@ if version >= 700
 endif
 
 let mapleader = ","
+
+"NERD Tree
+  map <leader>e :NERDTree<cr>
 
 " map git commands
 " ,l show git log for current file
