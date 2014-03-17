@@ -71,7 +71,8 @@ function! RunTests(filename)
     if filereadable("script/test")
       call ExecThis("script/test " . a:filename)
     elseif filereadable("Gemfile")
-      call ExecThis("bundle exec rspec --format documentation --color " . a:filename)
+      call ExecThis("rspec --format documentation --color " . a:filename)
+      "call ExecThis("bundle exec rspec --format documentation --color " . a:filename)
     else
       call ExecThis("rspec --format documentation --color " . a:filename)
     end
@@ -123,6 +124,7 @@ endfunction
 " run test runner
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
+map <leader>P :call ExecThis("php5 " . expand("%"))<cr>
 
 " open directory of gem of given name
 :command -nargs=1 Rgem exec "e `bundle show <args>`"
