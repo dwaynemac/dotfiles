@@ -4,6 +4,9 @@ execute pathogen#helptags()
 syntax on                               " show syantax hightlight
 filetype plugin indent on
 
+" integration with zeal offline api documentations
+:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+
 set encoding=utf-8
 
 set autoindent                          " set auto indend
@@ -118,7 +121,8 @@ endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
+  "FOR FULL BACKTRACE call RunTestFile(":" . spec_line_number . " -b")
+  call RunTestFile(":" . spec_line_number) "with short backtrace
 endfunction
 
 " run test runner
