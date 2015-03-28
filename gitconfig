@@ -2,10 +2,10 @@
 	name = Dwayne Macgowan
 	email = dwaynemac@gmail.com
 [core]
-	excludesfile = /home/dwaynemac/ws/.gitignore_global
+	excludesfile = /home/dwaynemac/.gitignore_global
   editor = vim
 [heroku]
-	account = dwayne
+	account = padma
 [color]
 	ui = true
 [push]
