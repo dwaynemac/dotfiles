@@ -3,6 +3,8 @@ execute pathogen#helptags()
 
 syntax on                               " show syantax hightlight
 filetype plugin indent on
+set background=dark
+colorscheme solarized
 
 " integration with zeal offline api documentations
 :nnoremap gz :!zeal --query "<cword>"&<CR><CR>
@@ -30,7 +32,7 @@ set scrolloff=2                         " minimun lines above/below cursor
 
 set laststatus=2                        " always show status bar
 set ruler                               " show row and column in footer
-set statusline=%f%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
+set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 set clipboard=unnamed                   " use the system clipboard
 
