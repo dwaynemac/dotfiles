@@ -24,7 +24,7 @@ ZSH_THEME="gallifrey"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(heroku rvm rails ruby vim ubuntu bundler tmux tmuxinator)
+plugins=(heroku rvm rails ruby vim ubuntu bundler tmux tmuxinator autojump)
 
 # User configuration
 

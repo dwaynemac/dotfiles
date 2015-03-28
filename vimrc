@@ -3,11 +3,9 @@ execute pathogen#helptags()
 
 syntax on                               " show syantax hightlight
 filetype plugin indent on
+let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
-
-" integration with zeal offline api documentations
-:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
 set encoding=utf-8
 
@@ -45,10 +43,14 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
+"
+" leader shortcuts
+" 
+
 let mapleader = ","
 
 "NERD Tree
-  map <leader>e :NERDTree<cr>
+map <leader>e :NERDTree<cr>
 
 " map git commands
 " ,l show git log for current file
@@ -64,73 +66,11 @@ vmap <Leader>h :'<,'>s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-" Run specs with ',t' via Gary Bernhardt
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  if match(a:filename, '\.feature$') != -1
-    call ExecThis("script/features " . a:filename)
-  elseif match(a:filename, '_test\.rb$') != -1
-    call ExecThis("ruby -Itest " . a:filename)
-  else
-    if filereadable("script/test")
-      call ExecThis("script/test " . a:filename)
-    elseif filereadable("Gemfile")
-      call ExecThis("rspec --format documentation --color " . a:filename)
-      "call ExecThis("bundle exec rspec --format documentation --color " . a:filename)
-    else
-      call ExecThis("rspec --format documentation --color " . a:filename)
-    end
-  end
-endfunction
+" vroom 
+let g:vroom_use_vimux = 1
+let g:vroom_map_keys = 0 " avoid vroom default shortcut
+map <leader>t :VroomRunTestFile<cr>
+map <leader>T :VroomRunNearestTest<cr>
 
-" wrap expression execution for easier vmux, etc, integration
-function! ExecThis(expression)
-  let a:use_vimux = 1
-  if a:use_vimux == 1
-    " run in vimux
-    let g:VimuxOrientation = "h" 
-    let g:VimuxHeight = "40"
-    call VimuxRunCommand(a:expression)
-  else
-    " run in vim's pane
-    :silent !clear
-    exec ":!" . a:expression
-  end
-endfunction
-
-function! SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  "FOR FULL BACKTRACE call RunTestFile(":" . spec_line_number . " -b")
-  call RunTestFile(":" . spec_line_number) "with short backtrace
-endfunction
-
-" run test runner
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>P :call ExecThis("php5 " . expand("%"))<cr>
-
-" open directory of gem of given name
-:command -nargs=1 Rgem exec "e `bundle show <args>`"
+" integration with zeal offline api documentations
+:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
