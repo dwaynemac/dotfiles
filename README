@@ -2,3 +2,4 @@ INSTALLATION
 
 git clone github.com/dwaynemac/dotfiles
 ln -s dotfiles/vimrc .vimrc
+ln -s dotfiles/tmux.conf .tmux.conf
