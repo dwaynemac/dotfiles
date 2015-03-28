@@ -1,0 +1,4 @@
+INSTALLATION
+
+git clone github.com/dwaynemac/dotfiles
+ln -s dotfiles/vimrc .vimrc
