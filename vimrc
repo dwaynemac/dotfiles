@@ -69,6 +69,8 @@ let g:gist_open_browser_after_post = 1
 " vroom 
 let g:vroom_use_vimux = 1
 let g:vroom_map_keys = 0 " avoid vroom default shortcut
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
