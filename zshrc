@@ -5,11 +5,12 @@ export ZSH=/home/dwaynemac/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="murilasso"
-# ZSH_THEME="kafeitu"
-ZSH_THEME="gallifrey"
-#ZSH_THEME="random"
+# ZSH_THEME="robbyrussell" # default
+# ZSH_THEME="random"
+# ZSH_THEME="murilasso" # ruby version
+# ZSH_THEME="gallifrey"
+# ZSH_THEME="superjarin"
+ZSH_THEME="dwaynemac"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
