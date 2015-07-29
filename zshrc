@@ -54,7 +54,7 @@ plugins=(git heroku rvm rails ruby vim ubuntu bundler tmux tmuxinator autojump)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/dwaynemac/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,6 +84,12 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gdeploy='git push origin master:production'
+alias hconsole='heroku run console -r production'
+alias cconsole='cap production rails:console'
+alias gpending='git grep -F "# TODO [ ]"' # to use with github.com/dwaynemac/vim-simple-todo
+
+export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
