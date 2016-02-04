@@ -30,7 +30,7 @@ set scrolloff=2                         " minimun lines above/below cursor
 
 set laststatus=2                        " always show status bar
 set ruler                               " show row and column in footer
-set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
+set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c] "\ [%L,%p%%]
 
 set clipboard=unnamed                   " use the system clipboard
 
@@ -74,5 +74,12 @@ let g:VimuxHeight = "40"
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
+" To run specs in other tmux session
+" gnome-terminal -t 'testing' -x $SHELL -ic 'tmux new -s testing; $SHELL'
+let g:VimuxRunnerIndex = 'testing' " session name here
+
 " integration with zeal offline api documentations
 :nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+
+" YUNOCommit configuration
+let g:YUNOcommit_after = 30

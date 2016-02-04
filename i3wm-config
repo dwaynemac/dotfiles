@@ -163,7 +163,7 @@ assign [class="^Google-chrome$" instance="^www.rememberthemilk.com__app$"] 5
 # PivotalTracker defaults to workspace 5
 assign [class="^Google-chrome$" instance="^www.pivotaltracker.com__n_projects_342025$"] 6
 # Spotify defaults to workspace 8
-assign [class="^Spotify$"] 9
+assign [class="^Spotify$"] 8
 # Slack defaults to workspace 9
 assign [class="^Google-chrome$" instance="^padma.slack.com__messages_general$"] 9
 

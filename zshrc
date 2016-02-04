@@ -88,6 +88,7 @@ alias gdeploy='git push origin master:production'
 alias hconsole='heroku run console -r production'
 alias cconsole='cap production rails:console'
 alias gpending='git grep -F "# TODO [ ]"' # to use with github.com/dwaynemac/vim-simple-todo
+alias i3cheatsheet='egrep ^bind ~/.i3/config | cut -d '\'' '\'' -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\'' | pr -2 -w 145 -t | less'
 
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
