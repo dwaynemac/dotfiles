@@ -1,11 +1,44 @@
-execute pathogen#infect()
-execute pathogen#helptags()
+set nocompatible                        " be iMproved, required by vundle
+filetype off                            " required by vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'benmills/vimux'
+Plugin 'skalnik/vim-vroom'
+Plugin 'rking/ag.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'esneider/YUNOcommit.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required by vundle
+filetype plugin indent on    " required by vundle
+
+"
+" Brief Vundle help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+"
+" Put your non-Plugin stuff after this line
 
 syntax on                               " show syantax hightlight
-filetype plugin indent on
-let g:solarized_termtrans = 1
 set background=dark
-colorscheme solarized
 
 set encoding=utf-8
 
@@ -61,10 +94,6 @@ map <leader>d :!clear && git diff %<cr>
 " Replace xxx => yyy with xxx: yyy
 nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 vmap <Leader>h :'<,'>s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
-
-" gist-vim preferences
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
 
 " vroom 
 let g:vroom_use_vimux = 1
