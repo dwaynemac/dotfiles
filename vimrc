@@ -13,11 +13,13 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
+Plugin 'skalnik/vim-vroom'         " test runner
+Plugin 'scrooloose/nerdtree'       " tree 
+Plugin 'ctrlpvim/ctrlp.vim'        " fuzzy open
+Plugin 'mileszs/ack.vim'           " search in repo
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'esneider/YUNOcommit.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by vundle
@@ -74,11 +76,25 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
+"VROOM (test runner) configurations
+let g:vroom_ignore_color_flag=1
+
+"Ack.vim
+if executable('ag') " use silver searcher if installed
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 "
 " leader shortcuts
 " 
 
 let mapleader = ","
+
+map <Leader>f :Ack!<Space> 
+
+" Vroom test runner
+map <leader>T :VroomRunNearestTest<cr>
+map <leader>t :VroomRunTestFile<cr>
 
 "NERD Tree
 map <leader>e :NERDTree<cr>
