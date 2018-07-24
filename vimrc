@@ -14,12 +14,10 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'skalnik/vim-vroom'
-Plugin 'rking/ag.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'esneider/YUNOcommit.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by vundle
@@ -85,6 +83,9 @@ let mapleader = ","
 "NERD Tree
 map <leader>e :NERDTree<cr>
 
+"ctrip Fuzzy Search - Quick Open
+map <leader>p :CtrlP .<cr>
+
 " map git commands
 " ,l show git log for current file
 " ,d shows git diff for current file
@@ -95,20 +96,9 @@ map <leader>d :!clear && git diff %<cr>
 nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 vmap <Leader>h :'<,'>s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 
-" vroom 
-let g:vroom_use_vimux = 1
-let g:vroom_map_keys = 0 " avoid vroom default shortcut
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "40"
-map <leader>t :VroomRunTestFile<cr>
-map <leader>T :VroomRunNearestTest<cr>
-
-" To run specs in other tmux session
-" gnome-terminal -t 'testing' -x $SHELL -ic 'tmux new -s testing; $SHELL'
-let g:VimuxRunnerIndex = 'testing' " session name here
-
-" integration with zeal offline api documentations
-:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
-
 " YUNOCommit configuration
 let g:YUNOcommit_after = 30
+
+" make MacVIM respect this color configuration
+" let macvim_skip_colorscheme=1
+colorscheme desert
