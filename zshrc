@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/dwaynemac/.oh-my-zsh
+export ZSH=/Users/dwaynemac/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,13 +50,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git heroku rvm rails ruby vim ubuntu bundler tmux tmuxinator autojump)
+plugins=(git github heroku rails ruby vim bundler autojump brew)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/dwaynemac/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -84,21 +84,10 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gdeploy='git push origin master:production'
-alias hconsole='heroku run console -r production'
-alias cconsole='cap production rails:console'
-alias gpending='git grep -F "# TODO [ ]"' # to use with github.com/dwaynemac/vim-simple-todo
-alias i3cheatsheet='egrep ^bind ~/.i3/config | cut -d '\'' '\'' -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\'' | pr -2 -w 145 -t | less'
+alias git=hub # use hub.github.com
 
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=/usr/local/opt/mysql@5.5/bin:~/.local/bin:~/Library/Python/3.6/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-### RVM 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-### Git Autocomplete
-source ~/dotfiles/.git-completion.bash
+eval "$(rbenv init -)"
