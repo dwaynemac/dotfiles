@@ -52,6 +52,10 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git github heroku rails ruby vim bundler autojump brew)
 
+precmd() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
