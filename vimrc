@@ -97,10 +97,10 @@ map <leader>T :VroomRunNearestTest<cr>
 map <leader>t :VroomRunTestFile<cr>
 
 "NERD Tree
-map <leader>e :NERDTree<cr>
+map <leader>w :NERDTree<cr>
 
 "ctrip Fuzzy Search - Quick Open
-map <leader>p :CtrlP .<cr>
+map <leader>e :CtrlP .<cr>
 
 " map git commands
 " ,l show git log for current file
