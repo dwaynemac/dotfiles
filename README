@@ -8,3 +8,6 @@ ln -s dotfiles/gitconfig .gitconfig
 ln -s dotfiles/zshrc .zshrc
 ln -s dotfiles/ackrc .ackrc
 ln -s dotfiles/curlrc .curlrc
+
+GOOD SETUPS:
+https://sourabhbajaj.com/mac-setup
