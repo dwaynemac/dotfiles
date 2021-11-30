@@ -8,7 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive' " me tira errores no se de que
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-projectionist'
@@ -20,6 +20,8 @@ Plugin 'mileszs/ack.vim'           " search in repo
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'esneider/YUNOcommit.vim'
+Plugin 'wakatime/vim-wakatime'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by vundle
@@ -63,7 +65,8 @@ set scrolloff=2                         " minimun lines above/below cursor
 
 set laststatus=2                        " always show status bar
 set ruler                               " show row and column in footer
-set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c] "\ [%L,%p%%]
+" saco el status line xq fugitive no está funcionando
+"set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c] "\ [%L,%p%%]
 
 set clipboard=unnamed                   " use the system clipboard
 
@@ -118,3 +121,9 @@ let g:YUNOcommit_after = 30
 " make MacVIM respect this color configuration
 " let macvim_skip_colorscheme=1
 colorscheme desert
+
+" I use rspec in rails projects
+" projects specific herustics may be configured in .projections.json
+let g:projectionist_heuristics = {
+      \  "app/models/*.rb": {"alternate": "spec/models/{}_spec.rb"}
+      \}
