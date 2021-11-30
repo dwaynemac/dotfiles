@@ -5,12 +5,12 @@ export ZSH=/Users/dwaynemac/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell" # default
+ZSH_THEME="robbyrussell" # default
+# ZSH_THEME="sunrise"
 # ZSH_THEME="random"
 # ZSH_THEME="murilasso" # ruby version
 # ZSH_THEME="gallifrey"
 # ZSH_THEME="superjarin"
-ZSH_THEME="dwaynemac"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -28,7 +28,7 @@ ZSH_THEME="dwaynemac"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github heroku rails ruby vim bundler autojump brew)
+plugins=(git git-flow heroku rbenv ruby rails bundler autojump ag alias-finder capistrano command-not-found macos rake rake-fast thefuck)
 
 precmd() {
   # sets the tab title to current dir
@@ -88,10 +88,15 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias git=hub # use hub.github.com
 
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
-export PATH=/usr/local/opt/mysql@5.5/bin:~/.local/bin:~/Library/Python/3.6/bin:$PATH
+# PATH configured on /etc/paths.d
+# see path running /usr/libexec/path_helper
+export PATH=/usr/local/bin:~/.local/bin:~/Library/Python/3.6/bin:$PATH
 
 eval "$(rbenv init -)"
+eval $(thefuck --alias)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
