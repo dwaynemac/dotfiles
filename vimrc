@@ -1,43 +1,8 @@
-set nocompatible                        " be iMproved, required by vundle
-filetype off                            " required by vundle
+set nocompatible                        " be improved
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugin 'tpope/vim-fugitive' " me tira errores no se de que
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-surround'
-Plugin 'skalnik/vim-vroom'         " test runner
-Plugin 'scrooloose/nerdtree'       " tree 
-Plugin 'ctrlpvim/ctrlp.vim'        " fuzzy open
-Plugin 'mileszs/ack.vim'           " search in repo
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-Plugin 'esneider/YUNOcommit.vim'
-Plugin 'wakatime/vim-wakatime'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required by vundle
-filetype plugin indent on    " required by vundle
-
-"
-" Brief Vundle help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
-" Put your non-Plugin stuff after this line
+" Native Vim packages live in ~/.vim/pack/vendor/start.
+" Disabled optional packages live in ~/.vim/pack/vendor/opt.
+filetype plugin indent on
 
 syntax on                               " show syantax hightlight
 set background=dark
@@ -110,10 +75,6 @@ map <leader>e :CtrlP .<cr>
 " ,d shows git diff for current file
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
-
-" Replace xxx => yyy with xxx: yyy
-nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
-vmap <Leader>h :'<,'>s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 
 " YUNOCommit configuration
 let g:YUNOcommit_after = 30
