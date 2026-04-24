@@ -2,6 +2,23 @@ set nocompatible                        " be improved
 
 " Native Vim packages live in ~/.vim/pack/vendor/start.
 " Disabled optional packages live in ~/.vim/pack/vendor/opt.
+"
+" Active plugins:
+" - tpope/vim-repeat
+" - tpope/vim-rails
+" - tpope/vim-projectionist
+" - tpope/vim-surround
+" - skalnik/vim-vroom
+" - scrooloose/nerdtree
+" - ctrlpvim/ctrlp.vim
+" - mileszs/ack.vim
+" - kchmck/vim-coffee-script
+" - pangloss/vim-javascript
+" - esneider/YUNOcommit.vim
+" - wakatime/vim-wakatime
+"
+" Optional plugins:
+" - tpope/vim-fugitive
 filetype plugin indent on
 
 syntax on                               " show syantax hightlight
