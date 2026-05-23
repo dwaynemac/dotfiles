@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dwaynemac/.oh-my-zsh
 
@@ -5,7 +7,8 @@ export ZSH=/Users/dwaynemac/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell" # default
+# ZSH_THEME="robbyrussell" # default
+ZSH_THEME="dwaynemac"
 # ZSH_THEME="sunrise"
 # ZSH_THEME="random"
 # ZSH_THEME="murilasso" # ruby version
@@ -28,7 +31,7 @@ ZSH_THEME="robbyrussell" # default
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -50,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow heroku rbenv ruby rails bundler autojump ag alias-finder capistrano command-not-found macos rake rake-fast thefuck)
+plugins=(git git-flow-avh heroku rbenv nvm ruby rails bundler autojump ag alias-finder capistrano command-not-found macos rake rake-fast asdf railway)
 
 precmd() {
   # sets the tab title to current dir
@@ -72,10 +75,15 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+#export EDITOR='rubymine --wait'
 export EDITOR='vim'
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#export ARCHFLAGS="-arch arm64"
+export ARCHFLAGS="-arch x86_64"
+export optflags="-Wno-error=implicit-function-declaration"
+export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
+export CFLAGS="-Wno-error=implicit-function-declaration"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -91,12 +99,51 @@ export EDITOR='vim'
 
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
+
 # PATH configured on /etc/paths.d
 # see path running /usr/libexec/path_helper
-export PATH=/usr/local/bin:~/.local/bin:~/Library/Python/3.6/bin:$PATH
+export PATH=/usr/local/bin:~/.local/bin:/usr/local/bin/python3:$PATH
 
-eval "$(rbenv init -)"
-eval $(thefuck --alias)
+# Add Postgres.app bin to PATH
+# queda ANTES de /usr/local/bin para que tenga prioridad
+#export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+
+# Config RubyMine CLI
+export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
+
+eval "$(rbenv init -)" # this loads rbenv
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# load node version from .nvmrc, ¿oh-my-zsh nvm plugin no hace esto??
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+# end nvm setup
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Socket.dev (dependencies firewall)
+alias bundle="sfw bundle"
+alias yarn="sfw yarn"
+alias npm="sfw npm"
