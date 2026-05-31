@@ -2,8 +2,9 @@
 	name = Dwayne Macgowan
 	email = dwaynemac@gmail.com
 [core]
-	excludesfile = /home/dwaynemac/.gitignore_global
+	excludesfile = /Users/dwaynemac/.gitignore
   editor = vim
+	autocrlf = input
 [heroku]
 	account = padma
 [color]
@@ -15,9 +16,19 @@
 [github]
 	user = dwaynemac
 [alias]
-  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold black)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   lg = !"git lg1"
   review = !~/dotfiles/open_commit_in_github.rb 
 [web]
 	browser = google-chrome
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[credential]
+	helper = osxkeychain
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
