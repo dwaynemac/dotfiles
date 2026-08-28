@@ -4,21 +4,13 @@ set nocompatible                        " be improved
 " Disabled optional packages live in ~/.vim/pack/vendor/opt.
 "
 " Active plugins:
-" - tpope/vim-repeat
+" - tpope/vim-fugitive
 " - tpope/vim-rails
 " - tpope/vim-projectionist
-" - tpope/vim-surround
-" - skalnik/vim-vroom
 " - scrooloose/nerdtree
 " - ctrlpvim/ctrlp.vim
 " - mileszs/ack.vim
-" - kchmck/vim-coffee-script
-" - pangloss/vim-javascript
-" - esneider/YUNOcommit.vim
 " - wakatime/vim-wakatime
-"
-" Optional plugins:
-" - tpope/vim-fugitive
 filetype plugin indent on
 
 syntax on                               " show syantax hightlight
@@ -47,8 +39,6 @@ set scrolloff=2                         " minimun lines above/below cursor
 
 set laststatus=2                        " always show status bar
 set ruler                               " show row and column in footer
-" saco el status line xq fugitive no está funcionando
-"set statusline=%f%m%r%h%w\%{fugitive#statusline()}\ [%l,%c] "\ [%L,%p%%]
 
 set clipboard=unnamed                   " use the system clipboard
 
@@ -61,11 +51,10 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
-"VROOM (test runner) configurations
-let g:vroom_ignore_color_flag=1
-
 "Ack.vim
-if executable('ag') " use silver searcher if installed
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --smart-case'
+elseif executable('ag') " use silver searcher if installed
   let g:ackprg = 'ag --vimgrep'
 endif
 
@@ -76,10 +65,6 @@ endif
 let mapleader = ","
 
 map <Leader>f :Ack!<Space> 
-
-" Vroom test runner
-map <leader>T :VroomRunNearestTest<cr>
-map <leader>t :VroomRunTestFile<cr>
 
 "NERD Tree
 map <leader>w :NERDTree<cr>
@@ -92,9 +77,6 @@ map <leader>e :CtrlP .<cr>
 " ,d shows git diff for current file
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
-
-" YUNOCommit configuration
-let g:YUNOcommit_after = 30
 
 " make MacVIM respect this color configuration
 " let macvim_skip_colorscheme=1
